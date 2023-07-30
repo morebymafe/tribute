@@ -4,11 +4,16 @@
 <html>
   <head>
     <title>The Tribute : Dr. Martin Luther King, Jr.</title>
-    <link rel="stylesheet" href="martin.css">
+    <link rel="stylesheet" href="dark.css">
     <!-- link to codepen   https://codepen.io/FCCmafe/embed/zYroweE/?theme-id=modal#result-box -->
   </head>
   <body>
+    <nav id="switch">
+      <img src="sun.png" class="mode" onclick="changeCSS('light.css')" alt="" srcset="">
+      <img src="moon.png" class="mode" onclick="changeCSS('black.css')" alt="" srcset="">
+    </nav>
     <main id="main">
+      
       <header>
         <h1 id="title">Dr. Martin Luther King, Jr.</h1>
         <h3></h3>
@@ -76,6 +81,19 @@ who are good."
       left: 0,
       behavior: "smooth",
   })
+}
+
+//Code for change from dark mode to light mode
+function changeCSS(cssFile, cssLinkIndex) {
+
+var oldlink = document.getElementsByTagName("link").item(cssLinkIndex);
+
+var newlink = document.createElement("link");
+newlink.setAttribute("rel", "stylesheet");
+newlink.setAttribute("type", "text/css");
+newlink.setAttribute("href", cssFile);
+
+document.getElementsByTagName("head").item(cssLinkIndex).replaceChild(newlink, oldlink);
 }
     </script>
     
